@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "titulo": "Minecraft",
+        "genero": "Sandbox",
+        "plataforma": "PC",
+        "anio": 2011,
+        "nota": 9.5
+    },
+    {
+        "id": 2,
+        "titulo": "The Legend of Zelda: Breath of the Wild",
+        "genero": "Aventura",
+        "plataforma": "Nintendo Switch",
+        "anio": 2017,
+        "nota": 9.8
+    },
+    {
+        "id": 3,
+        "titulo": "Grand Theft Auto V",
+        "genero": "Accion",
+        "plataforma": "PlayStation 5",
+        "anio": 2013,
+        "nota": 9.2
+    },
+    {
+        "id": 4,
+        "titulo": "Stardew Valley",
+        "genero": "Simulacion",
+        "plataforma": "PC",
+        "anio": 2016,
+        "nota": 9.0
+    },
+    {
+        "id": 5,
+        "titulo": "Super Mario Odyssey",
+        "genero": "Plataformas",
+        "plataforma": "Nintendo Switch",
+        "anio": 2017,
+        "nota": 9.4
+    }
+]
