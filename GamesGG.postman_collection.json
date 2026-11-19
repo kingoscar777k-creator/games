@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "GamesGG - API de Videojuegos",
+		"description": "Colección para probar la API CRUD de videojuegos (gamesgg).\n\nAntes de usarla:\n1. Arranca el servidor: uvicorn main:app --reload\n2. La base URL es http://127.0.0.1:8000",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Listar todos los videojuegos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/videojuegos",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000",
+					"path": ["videojuegos"]
+				},
+				"description": "Devuelve la lista completa de videojuegos."
+			},
+			"response": []
+		},
+		{
+			"name": "2. Filtrar por género",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/videojuegos?genero=Aventura",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000",
+					"path": ["videojuegos"],
+					"query": [
+						{
+							"key": "genero",
+							"value": "Aventura"
+						}
+					]
+				},
+				"description": "Filtra por género (ejemplo: Aventura, Sandbox, Accion...)."
+			},
+			"response": []
+		},
+		{
+			"name": "3. Filtrar por plataforma",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/videojuegos?plataforma=PC",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000",
+					"path": ["videojuegos"],
+					"query": [
+						{
+							"key": "plataforma",
+							"value": "PC"
+						}
+					]
+				},
+				"description": "Filtra por plataforma (ejemplo: PC, Nintendo Switch, PlayStation 5)."
+			},
+			"response": []
+		},
+		{
+			"name": "4. Filtrar por género y plataforma",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/videojuegos?genero=Aventura&plataforma=Nintendo Switch",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000",
+					"path": ["videojuegos"],
+					"query": [
+						{
+							"key": "genero",
+							"value": "Aventura"
+						},
+						{
+							"key": "plataforma",
+							"value": "Nintendo Switch"
+						}
+					]
+				},
+				"description": "Combina ambos filtros."
+			},
+			"response": []
+		},
+		{
+			"name": "5. Buscar por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/videojuegos/1",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000",
+					"path": ["videojuegos", "1"]
+				},
+				"description": "Devuelve un videojuego por su ID. Si no existe → 404."
+			},
+			"response": []
+		},
+		{
+			"name": "6. Agregar videojuego",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Hollow Knight\",\n    \"genero\": \"Metroidvania\",\n    \"plataforma\": \"PC\",\n    \"anio\": 2017,\n    \"nota\": 9.7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/videojuegos",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000",
+					"path": ["videojuegos"]
+				},
+				"description": "Agrega un videojuego. El ID se genera automáticamente.\nSi ya existe el mismo título + plataforma → 409."
+			},
+			"response": []
+		},
+		{
+			"name": "7. Editar videojuego",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"titulo\": \"Minecraft\",\n    \"genero\": \"Sandbox\",\n    \"plataforma\": \"PC\",\n    \"anio\": 2011,\n    \"nota\": 9.6\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/videojuegos/1",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000",
+					"path": ["videojuegos", "1"]
+				},
+				"description": "Edita el videojuego con el ID indicado. Si no existe → 404.\nSi el nuevo título+plataforma ya existe en otro → 409."
+			},
+			"response": []
+		},
+		{
+			"name": "8. Borrar videojuego",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/videojuegos/5",
+					"protocol": "http",
+					"host": ["127", "0", "0", "1"],
+					"port": "8000",
+					"path": ["videojuegos", "5"]
+				},
+				"description": "Elimina el videojuego con el ID indicado. Si no existe → 404."
+			},
+			"response": []
+		}
+	]
+}
